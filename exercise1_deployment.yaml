@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercise1-deployment
+  labels:
+    app: exercise1-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: exercise1-deployment
+  template:
+    metadata:
+      labels:
+        app: exercise1-deployment
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+          - containerPort: 80
+
