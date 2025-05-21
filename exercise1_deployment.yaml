@@ -18,5 +18,11 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-          - containerPort: 80
-
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: exercise1-volume1
+      volumes:
+        - name: exercise1-volume1
+          persistentVolumeClaim:
+            claimName: exercise1-pvc001              
